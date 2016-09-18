@@ -13,4 +13,6 @@ console.log(process.env);
 
 var port = 3000;
 
-app.listen(port);
+app.set('ipaddress', (process.env.IP));
+app.set('port', (process.env.PORT || port));
+app.listen(app.get('port'), app.get('ipaddress'));
