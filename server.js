@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 require ("./test/app.js")(app);
 console.log(process.env);
 
-var port = 3000;
+var port = 5000;
 
 app.set('ipaddress', (process.env.IP));
 app.set('port', (process.env.PORT || port));
