@@ -3,5 +3,23 @@ input.form-control {
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 65px;
+}
+
+.navbar-default {
+    background-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }
