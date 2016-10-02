@@ -4,6 +4,7 @@ input.form-control {
 
 body {
     padding-top: 65px;
+    overflow: hidden;
 }
 
 .navbar-default {
@@ -25,8 +26,11 @@ body {
 }
 
 .navbar-default .navbar-nav .navbar-font {
+    padding: 10px 18px;
     color:white;
     font-size:20px;
+    line-height: 25px;
+    display: inline-block;
 }
 
 .navbar-default .navbar-nav li a:focus {
@@ -47,4 +51,24 @@ body {
 .navbar-default .navbar-brand:hover {
     color:lightskyblue;
     font-size:22px;
+}
+
+.overflow-margin {
+    margin-right: 15px;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.divider-right {
+    border-right: 1px solid lightgray;
+    -webkit-border-vertical-spacing: 20px;
+    margin-top: -45px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.padding-left-12 {
+    padding-left: 12px;
 }
