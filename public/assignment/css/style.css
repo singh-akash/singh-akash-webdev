@@ -37,6 +37,10 @@ body {
     display: inline-block;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .navbar-default .navbar-nav li a:focus {
     color:blanchedalmond;
     font-size:20px;
