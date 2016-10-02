@@ -53,10 +53,6 @@ body {
     font-size:22px;
 }
 
-.overflow-margin {
-    margin-right: 15px;
-}
-
 .list-group-item {
     border: none;
 }
@@ -66,9 +62,4 @@ body {
     -webkit-border-vertical-spacing: 20px;
     margin-top: -45px;
     height: 100vh;
-    overflow: hidden;
-}
-
-.padding-left-12 {
-    padding-left: 12px;
 }
