@@ -4,9 +4,13 @@ input.form-control {
 
 body {
     padding-top: 70px;
+    padding-bottom: 70px;
     overflow: hidden;
 }
-
+.scroll-overflow
+{
+    overflow: scroll;
+}
 .navbar-default {
     background-color: #337ab7;
 }
@@ -62,4 +66,16 @@ body {
     -webkit-border-vertical-spacing: 20px;
     margin-top: -45px;
     height: 100vh;
+}
+
+.relative-position {
+    position: relative;
+}
+
+.list-element-menu {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
 }
