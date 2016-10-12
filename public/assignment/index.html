@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
-    <meta charset="UTF-8">
-    <title>Assignments Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>Assignment Home Page</title>
 </head>
 <body>
-    <h1 class="text-center">Assignment Home Page</h1>
-    <br>
-    <br>
-    <h4 class="text-center">Welcome to my assignments page. </h4>
-    <h4 class="text-center">You can login <a href="login.html" target="_self">here</a> or Register <a href="register.html" target="_self">here.</a></h4>
+<div ng-view>
+</div>
 </body>
 </html>
