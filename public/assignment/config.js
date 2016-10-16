@@ -5,9 +5,6 @@
 
     function Config($routeProvider) {
         $routeProvider
-            .when("/", {
-                templateUrl: "views/user/login.view.client.html"
-            })
             .when("/login", {
                 templateUrl: "views/user/login.view.client.html"
             })
@@ -43,6 +40,9 @@
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widgets/widget-edit.view.client.html"
+            })
+            .otherwise({
+                redirectTo: "/login"
             });
     }
 })();
