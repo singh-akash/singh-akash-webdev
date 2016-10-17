@@ -10,11 +10,17 @@
         vm.login = login;
 
         function login(username, password) {
+            if (!(username && password)) {
+                vm.error = "Please enter username and password";
+                return;
+            }
+
             var user = UserService.findUserByCredentials(username, password);
 
-            if(user === null) {
-                vm.error = "No such user";
-            } else {
+            if(!user) {
+                vm.error = "Invalid username and password combination";
+            }
+            else {
                 $location.url("/user/" + user._id);
             }
         }
@@ -29,7 +35,8 @@
                 if (user.password === user.confirmPassword) {
                     var userId = UserService.createUser(user);
                     $location.url("/user/" + userId);
-                } else {
+                }
+                else {
                     vm.error = "Password and Confirm Password should match"
                 }
             }

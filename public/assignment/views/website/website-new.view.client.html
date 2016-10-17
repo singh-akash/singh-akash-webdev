@@ -2,26 +2,27 @@
     <div class="container-fluid row">
         <div class="col-xs-4 hidden-xs">
             <ul class="nav navbar-nav ">
-                <li><a class="navbar-font navbar-link" href="website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li><a class="navbar-font navbar-link" href="#/user/{{model.userId}}/website">
+                    <span class="glyphicon glyphicon-chevron-left"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-header">
-                <li><a class="navbar-font" href="website-list.view.client.html">Websites</a></li>
+                <li><a class="navbar-font" href="#">Websites</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right pull-right">
-                <li><a class="navbar-font" href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
+                <li><a class="navbar-font" href="#/user/{{model.userId}}/website/new"><span class="glyphicon glyphicon-plus"></span></a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
             <ul class="nav navbar-nav ">
                 <li><a class="navbar-font navbar-link visible-xs"
-                       href="website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                       href="#/user/{{model.userId}}/website"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-header">
                 <li><a class="navbar-font" href="#">New Website</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right pull-right">
                 <li><a class="navbar-font"
-                       href="website-list.view.client.html"><span class="glyphicon glyphicon-ok"></span></a></li>
+                       ng-click="model.addWebsite(model.website)"><span class="glyphicon glyphicon-ok"></span></a></li>
             </ul>
         </div>
     </div>
@@ -30,21 +31,13 @@
 <div class="col-xs-4 hidden-xs divider-right">
     <div class="row container-fluid">
         <ul class="list-group">
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Address Book App</a>
-                <a href="website-edit.view.client.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Blogger</a>
-                <a href="website-edit.view.client.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Blogging App</a>
-                <a href="website-edit.view.client.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Script Testing App</a>
-                <a href="website-edit.view.client.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <a href="#/user/{{model.userId}}/website/{{website._id}}/page">
+                    {{website.name}}
+                </a>
+                <a href="#/user/{{model.userId}}/website/{{website._id}}" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
             </li>
         </ul>
     </div>
@@ -54,11 +47,11 @@
     <form class="padding-left-12">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name"/>
+            <input ng-model="model.website.name" type="text" class="form-control" id="name" placeholder="Name"/>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
+            <textarea ng-model="model.website.description" class="form-control" rows="5" id="description" placeholder="Description"></textarea>
         </div>
     </form>
 </div>
@@ -66,7 +59,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right pull-right">
-            <li><a class="navbar-font" href="../user/profile.view.client.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a class="navbar-font" href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
     </div>
 </nav>

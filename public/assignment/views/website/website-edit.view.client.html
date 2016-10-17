@@ -3,27 +3,27 @@
         <div class="col-xs-4 hidden-xs">
             <ul class="nav navbar-nav ">
                 <li><a class="navbar-font navbar-link"
-                       href="website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                       href="#/user/{{model.userId}}/website"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-header">
-                <li><a class="navbar-font" href="website-list.view.client.html">Websites</a></li>
+                <li><a class="navbar-font" href="#">Websites</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right pull-right">
                 <li><a class="navbar-font"
-                       href="website-new.view.client.html"><span class="glyphicon glyphicon-plus"></span></a></li>
+                       href="#/user/{{model.userId}}/website/new"><span class="glyphicon glyphicon-plus"></span></a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8">
             <ul class="nav navbar-nav ">
                 <li><a class="navbar-font navbar-link visible-xs"
-                       href="website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                       href="#/user/{{model.userId}}/website"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-header">
                 <li><a class="navbar-font" href="#">Edit Website</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right pull-right">
                 <li><a class="navbar-font"
-                       href="website-list.view.client.html"><span class="glyphicon glyphicon-ok"></span></a></li>
+                       ng-click="model.updateWebsite(model.website)"><span class="glyphicon glyphicon-ok"></span></a></li>
             </ul>
         </div>
     </div>
@@ -32,21 +32,13 @@
 <div class="col-xs-4 hidden-xs divider-right">
     <div class="row container-fluid">
         <ul class="list-group">
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Address Book App</a>
-                <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Blogger</a>
-                <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Blogging App</a>
-                <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
-            </li>
-            <li class="list-group-item">
-                <a href="../page/page-list.view.client.html">Script Testing App</a>
-                <a href="#" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <a href="#/user/{{model.userId}}/website/{{website._id}}/page">
+                    {{website.name}}
+                </a>
+                <a href="#/user/{{model.userId}}/website/{{website._id}}" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
             </li>
         </ul>
     </div>
@@ -56,22 +48,22 @@
     <form class="padding-left-12">
         <div class="form-group">
             <label for="name">Website Name</label>
-            <input type="text" class="form-control" id="name" value="Blogger"/>
+            <input type="text" ng-model="model.website.name" class="form-control" id="name" value="Blogger"/>
         </div>
         <div class="form-group">
             <label for="description">Website Description</label>
-            <textarea class="form-control" rows="5" id="description">Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account.[5] Up until May 1, 2010, Blogger allowed users to publish blogs on other hosts, via FTP. All such blogs had (or still have) to be moved to Google's own servers, with domains other than blogspot.com allowed via custom URLs.[6] Unlike WordPress.com, Blogger allows its users to use their own domain free of charge, while WordPress.com charges around $13 to use a custom domain.[7] Blogger cannot be installed on a web server. One has to use DNS facilities to redirect a custom URL to a blogspot domain.[8]
+            <textarea class="form-control" ng-model="model.website.description" rows="5" id="description">Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account.[5] Up until May 1, 2010, Blogger allowed users to publish blogs on other hosts, via FTP. All such blogs had (or still have) to be moved to Google's own servers, with domains other than blogspot.com allowed via custom URLs.[6] Unlike WordPress.com, Blogger allows its users to use their own domain free of charge, while WordPress.com charges around $13 to use a custom domain.[7] Blogger cannot be installed on a web server. One has to use DNS facilities to redirect a custom URL to a blogspot domain.[8]
             </textarea>
         </div>
         <a class="btn btn-danger btn-block"
-           href="website-list.view.client.html">Delete</a>
+           ng-click="model.deleteWebsite()">Delete</a>
     </form>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right pull-right">
-            <li><a class="navbar-font" href="../user/profile.view.client.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a class="navbar-font" href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
     </div>
 </nav>
