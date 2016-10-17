@@ -8,16 +8,23 @@
     </div>
 </nav>
 <div class="container">
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
     <form>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="FullMetal">
+            <input type="text" ng-model="model.username" class="form-control" id="username" placeholder="FullMetal">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="PhilosophersStome">
+            <input type="password" ng-model="model.password" class="form-control" id="password" placeholder="PhilosophersStome">
         </div>
-        <a class="btn btn-primary btn-block" href="profile.view.client.html">Login</a>
-        <a class="btn btn-success btn-block" href="register.view.client.html">Register</a>
+
+        <a ng-click="model.login(model.username, model.password)" class="btn btn-primary btn-block">Login</a>
+
+        <a class="btn btn-success btn-block" href="#/register">Register</a>
     </form>
 </div>
