@@ -20,7 +20,7 @@
 
         function addWebsite(website){
             WebsiteService.createWebsite(vm.userId, website);
-            $location.url("/user/" + vm.userId + "/website");
+            $location.url("/user/" + vm.userId + "/website/");
         }
     }
 
@@ -36,7 +36,7 @@
 
         function deleteWebsite(){
             WebsiteService.deleteWebsite(vm.websiteId);
-            $location.url("/user/" + vm.userId + "/website");
+            $location.url("/user/" + vm.userId + "/website/");
         }
 
         function updateWebsite(website) {

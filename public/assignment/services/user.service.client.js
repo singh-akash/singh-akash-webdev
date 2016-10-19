@@ -28,11 +28,12 @@
 
         function createUser(user) {
             var userId = users[users.length - 1]._id + 1;
+            user._id = userId;
+            user.firstName = user.username;
+            user.lastName = user.username;
+            user.email = user.username + "@alchemist.com";
 
-            var newUser = { "_id": userId, "username": user.username, "password": user.password,
-                "firstName": user.username, "lastName": user.username, "email": user.username + "@alchemist.com"};
-
-            users.push(newUser);
+            users.push(user);
             return userId;
         }
 
@@ -48,9 +49,8 @@
 
         function findUserByUsername(username) {
             for (var u in users) {
-                user = users[u];
-                if (user.username === username) {
-                    return user;
+                if (users[u].username === username) {
+                    return users[u];
                 }
             }
             return null;
@@ -58,10 +58,9 @@
 
         function findUserByCredentials(username, password) {
             for (var u in users){
-                user = users[u];
-                if (user.username === username &&
-                    user.password === password) {
-                    return user;
+                if (users[u].username === username &&
+                    users[u].password === password) {
+                    return users[u];
                 }
             }
             return null;
@@ -69,18 +68,18 @@
 
         function updateUser(userId, user) {
             for (var u in users) {
-                currUser = users[u];
-                if (currUser._id === userId) {
+                if (users[u]._id === userId) {
                     users[u] = user;
+                    break;
                 }
             }
         }
 
         function deleteUser(userId) {
             for (var u in users) {
-                currUser = users[u];
-                if (currUser._id === userId) {
-                    delete users[u];
+                if (users[u]._id === userId) {
+                    users.splice(parseInt(u), 1);
+                    break;
                 }
             }
         }
