@@ -7,10 +7,15 @@ body {
     padding-bottom: 70px;
     overflow: hidden;
 }
-.scroll-overflow
+
+.scroll-overflow-y
 {
-    overflow: scroll;
+    overflow-y: scroll;
+    position: relative;
+    height: -moz-calc(100vh - 140px); /* Firefox -> 100vh - padding top - padding bottom*/
+    height: -webkit-calc(100vh - 140px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
 }
+
 .navbar-default {
     background-color: #337ab7;
 }
@@ -63,13 +68,6 @@ a:hover {
 
 .list-group-item {
     border: none;
-}
-
-.divider-right {
-    border-right: 1px solid lightgray;
-    -webkit-border-vertical-spacing: 20px;
-    margin-top: -45px;
-    height: 100vh;
 }
 
 .relative-position {

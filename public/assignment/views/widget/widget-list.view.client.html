@@ -1,20 +1,51 @@
-<div class="scroll-overflow">
+<div class="scroll-overflow-y">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li><a class="navbar-font"
-                   href="../page/page-list.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <span class="glyphicon glyphicon-chevron-left"></span></a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a class="navbar-font" href="#">Widgets</a></li>
+            <li><a class="navbar-font">Widgets</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right">
             <li><a class="navbar-font"
-                   href="widget-chooser.view.client.html"><span class="glyphicon glyphicon-plus"></span></a></li>
+                   href="#/user/{{model.userid}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+                <span class="glyphicon glyphicon-plus"></span></a></li>
         </ul>
     </div>
 </nav>
 
+<div class="container">
+    <div ng-switch="widget.widgetType"
+         ng-repeat="widget in model.widgets">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}" class="pull-right">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <div ng-switch="widget.size" ng-switch-when="HEADER">
+            <h1 ng-switch-when="1">{{widget.text}}</h1>
+            <h2 ng-switch-when="2">{{widget.text}}</h2>
+            <h3 ng-switch-when="3">{{widget.text}}</h3>
+            <h4 ng-switch-when="4">{{widget.text}}</h4>
+            <h5 ng-switch-when="5">{{widget.text}}</h5>
+            <h6 ng-switch-when="6">{{widget.text}}</h6>
+        </div>
+        <div ng-switch-when="YOUTUBE" class="embed-responsive embed-responsive-4by3 youtube-widget">
+            <iframe class="embed-responsive-item" width="560" height="315"
+                    ng-src="{{model.checkSafeYouTubeUrl(widget.url)}}"
+                    frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div ng-switch-when="IMAGE" class="container-fluid">
+                <img class="img-responsive"
+                     ng-src="{{widget.url}}"
+                     alt="Sample Image"/>
+        </div>
+        <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
+        </div>
+    </div>
+</div>
+<!--
 <div class="container">
     <div class="list-group">
         <div class="relative-position">
@@ -89,16 +120,18 @@
     </div>
 </div>
 
+-->
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li><a class="navbar-font" href="#"><span class="glyphicon glyphicon-play"></span></a></li>
+            <li><a class="navbar-font"><span class="glyphicon glyphicon-play"></span></a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a class="navbar-font" href="#"><span class="glyphicon glyphicon-eye-open"></span></a></li>
+            <li><a class="navbar-font"><span class="glyphicon glyphicon-eye-open"></span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right">
-            <li><a class="navbar-font" href="../user/profile.view.client.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a class="navbar-font" href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
     </div>
 </nav>
