@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-font"
+                   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                <span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-font">Widget Edit</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right pull-right">
+            <li><a class="navbar-font"
+                   ng-click="model.updateWidget(model.widget)">
+                <span class="glyphicon glyphicon-ok"></span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<div ng-include="'/assignment/views/widget/widget-' + model.widget.widgetType + '.view.client.html'">
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right pull-right">
+            <li><a class="navbar-font" href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
+        </ul>
+    </div>
+</nav>
