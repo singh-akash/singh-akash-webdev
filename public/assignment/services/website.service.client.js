@@ -44,7 +44,7 @@
         function findWebsiteById(websiteId) {
             for (var w in websites) {
                 if (websites[w]._id === websiteId) {
-                    return websites[w];
+                    return JSON.parse(JSON.stringify(websites[w]));
                 }
             }
             return null;

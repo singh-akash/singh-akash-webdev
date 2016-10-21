@@ -14,8 +14,10 @@
         vm.checkSafeHtml = checkSafeHtml;
         vm.checkSafeYouTubeUrl = checkSafeYouTubeUrl;
 
-        vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
-
+        function init() {
+            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
+        }
+        init();
 
         function checkSafeHtml(html) {
             return $sce.trustAsHtml(html);
@@ -39,10 +41,9 @@
         vm.pageId = parseInt($routeParams['pid']);
 
         function addWidget(widgetType) {
-            WidgetService.create(vm.pageId, {widgetType: widgetType});
-            vm.widgetId = PageService.createPage(vm.websiteId, page);
+            vm.widgetId = WidgetService.createWidget(vm.pageId, {"widgetType": widgetType});
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId +
-                "/page" + vm.pageId + "/widget" + vm.widgetId);
+                "/page/" + vm.pageId + "/widget/" + vm.widgetId);
         }
     }
 
@@ -56,7 +57,11 @@
         vm.websiteId  = parseInt($routeParams.wid);
         vm.pageId  = parseInt($routeParams.pid);
         vm.widgetId = parseInt($routeParams.wgid);
-        vm.widget = WidgetService.findWidgetById(vm.widgetId);
+
+        function init() {
+            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+        }
+        init();
 
         function deleteWidget() {
             WidgetService.deleteWidget(vm.widgetId);

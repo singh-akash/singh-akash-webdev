@@ -33,6 +33,7 @@
             widget._id = widgetId;
             widget.pageId = pageId;
             widgets.push(widget);
+            return widgetId;
         }
 
         function findWidgetsByPageId(pageId) {
@@ -48,7 +49,7 @@
         function findWidgetById(widgetId) {
             for (var w in widgets) {
                 if (widgets[w]._id === widgetId) {
-                    return widgets[w];
+                    return JSON.parse(JSON.stringify(widgets[w]));
                 }
             }
             return null;

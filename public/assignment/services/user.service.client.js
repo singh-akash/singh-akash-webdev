@@ -41,7 +41,7 @@
             for (var u in users){
                 user = users[u];
                 if (user._id === userId){
-                    return user;
+                    return JSON.parse(JSON.stringify(user));
                 }
             }
             return null;
@@ -50,7 +50,7 @@
         function findUserByUsername(username) {
             for (var u in users) {
                 if (users[u].username === username) {
-                    return users[u];
+                    return JSON.parse(JSON.stringify(users[u]));
                 }
             }
             return null;
@@ -60,7 +60,7 @@
             for (var u in users){
                 if (users[u].username === username &&
                     users[u].password === password) {
-                    return users[u];
+                    return JSON.parse(JSON.stringify(users[u]));
                 }
             }
             return null;

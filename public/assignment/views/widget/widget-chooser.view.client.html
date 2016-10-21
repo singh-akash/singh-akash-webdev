@@ -2,33 +2,34 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li><a class="navbar-font"
-                   href="../user/profile.view.client.html"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                <span class="glyphicon glyphicon-chevron-left"></span></a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a class="navbar-font" href="#">Choose Widget</a></li>
+            <li><a class="navbar-font">Choose Widget</a></li>
         </ul>
     </div>
 </nav>
 
 <div class="container-fluid">
     <ul class="list-group">
-        <li class="list-group-item"><a href="widget-header.view.client.html">Header</a></li>
-        <li class="list-group-item"><a href="#">Label</a></li>
-        <li class="list-group-item"><a href="#">HTML</a></li>
-        <li class="list-group-item"><a href="#">Text Input</a></li>
-        <li class="list-group-item"><a href="#">Link</a></li>
-        <li class="list-group-item"><a href="#">Button</a></li>
-        <li class="list-group-item"><a href="widget-image.view.client.html">Image</a></li>
-        <li class="list-group-item"><a href="widget-youtube.view.client.html">YouTube</a></li>
-        <li class="list-group-item"><a href="#">Data Table</a></li>
-        <li class="list-group-item"><a href="#">Repeater</a></li>
+        <li class="list-group-item"><a ng-click="model.addWidget('HEADER')">Header</a></li>
+        <li class="list-group-item"><a>Label</a></li>
+        <li class="list-group-item"><a ng-click="model.addWidget('HTML')">HTML</a></li>
+        <li class="list-group-item"><a>Text Input</a></li>
+        <li class="list-group-item"><a>Link</a></li>
+        <li class="list-group-item"><a>Button</a></li>
+        <li class="list-group-item"><a ng-click="model.addWidget('IMAGE')">Image</a></li>
+        <li class="list-group-item"><a ng-click="model.addWidget('YOUTUBE')">YouTube</a></li>
+        <li class="list-group-item"><a>Data Table</a></li>
+        <li class="list-group-item"><a>Repeater</a></li>
     </ul>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right pull-right">
-            <li><a class="navbar-font" href="../user/profile.view.client.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a class="navbar-font" href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
     </div>
 </nav>
