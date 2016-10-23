@@ -25,8 +25,13 @@
         init();
 
         function addWebsite(website){
-            WebsiteService.createWebsite(vm.userId, website);
-            $location.url("/user/" + vm.userId + "/website/");
+            if (website.name) {
+                WebsiteService.createWebsite(vm.userId, website);
+                $location.url("/user/" + vm.userId + "/website/");
+            }
+            else {
+                vm.error = "Please enter a Website Name";
+            }
         }
     }
 
@@ -50,8 +55,13 @@
         }
 
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId, website);
-            $location.url("/user/" + vm.userId + "/website/");
+            if (website.name) {
+                WebsiteService.updateWebsite(vm.websiteId, website);
+                $location.url("/user/" + vm.userId + "/website/");
+            }
+            else {
+                vm.error = "Please enter a Website Name";
+            }
         }
     }
 })();

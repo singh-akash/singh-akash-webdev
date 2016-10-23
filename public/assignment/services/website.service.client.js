@@ -53,7 +53,7 @@
         function updateWebsite(websiteId, website) {
             for (var w in websites) {
                 if (websites[w]._id === websiteId) {
-                    website[w] = website;
+                    websites[w] = website;
                     break;
                 }
             }
