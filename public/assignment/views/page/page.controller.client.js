@@ -34,7 +34,7 @@
                 $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
             }
             else {
-                vm.error = "Please enter a Page Name";
+                vm.error = "Page Name cannot be left blank";
             }
         }
     }
@@ -65,7 +65,7 @@
                 $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
             }
             else {
-                vm.error = "Please enter a Page Name";
+                vm.error = "Page Name cannot be left blank";
             }
         }
     }

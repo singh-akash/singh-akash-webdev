@@ -30,7 +30,7 @@
                 $location.url("/user/" + vm.userId + "/website/");
             }
             else {
-                vm.error = "Please enter a Website Name";
+                vm.error = "Website Name cannot be left blank";
             }
         }
     }
@@ -60,7 +60,7 @@
                 $location.url("/user/" + vm.userId + "/website/");
             }
             else {
-                vm.error = "Please enter a Website Name";
+                vm.error = "Website Name cannot be left blank";
             }
         }
     }
