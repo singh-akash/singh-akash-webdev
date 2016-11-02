@@ -15,14 +15,19 @@
                 return;
             }
 
-            var user = UserService.findUserByCredentials(username, password);
-
-            if(!user) {
-                vm.error = "Invalid username and password combination";
-            }
-            else {
-                $location.url("/user/" + user._id);
-            }
+            UserService
+                .findUserByCredentials(username, password)
+                .success(function (user) {
+                    if(user === '0') {
+                        vm.error = "Invalid username and password combination";
+                    }
+                    else {
+                        $location.url("/user/" + user._id);
+                    }
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
     }
 
@@ -33,8 +38,14 @@
         function register(user) {
             if (user && user.username && user.password) {
                 if (user.password === user.confirmPassword) {
-                    var userId = UserService.createUser(user);
-                    $location.url("/user/" + userId);
+                    UserService
+                        .createUser(user)
+                        .success(function (user) {
+                            $location.url("/user/" + user._id);
+                        })
+                        .error(function (error) {
+                            console.error(error);
+                        })
                 }
                 else {
                     vm.error = "Password and Confirm Password should match"
@@ -46,21 +57,37 @@
         }
     }
 
-    function ProfileController($routeParams, UserService) {
+    function ProfileController($routeParams, UserService, $location) {
         var vm = this;
         vm.updateUser = updateUser;
-
+        vm.deleteUser = deleteUser;
+        
         var userId = parseInt($routeParams['uid']);
 
         function init() {
-            var user = UserService.findUserById(userId);
-
-            if (user != null) {
-                vm.user = user;
-            }
+            UserService
+                .findUserById(userId)
+                .success(function (user) {
+                    if (user != '0') {
+                        vm.user = user;
+                    }
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
-
+        
+        function deleteUser() {
+            UserService
+                .deleteUser(userId)
+                .success(function () {
+                    $location.url("/login");
+                })
+                .error(function (error) {
+                    console.error(error);
+                })
+        }
         function updateUser(user){
             if (user.username) {
                 UserService.updateUser(userId, user);

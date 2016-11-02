@@ -9,7 +9,14 @@
         var vm = this;
         vm.userId = parseInt($routeParams['uid']);
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
     }
@@ -20,14 +27,27 @@
         vm.userId = parseInt($routeParams['uid']);
 
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-        }
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
+        }   
         init();
 
         function addWebsite(website){
             if (website.name) {
-                WebsiteService.createWebsite(vm.userId, website);
-                $location.url("/user/" + vm.userId + "/website/");
+                WebsiteService
+                    .createWebsite(vm.userId, website)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/");
+                    })
+                    .error(function (error) {
+                        console.error(error);
+                    })
             }
             else {
                 vm.error = "Website Name cannot be left blank";
@@ -44,20 +64,46 @@
         vm.userId = parseInt($routeParams['uid']);
 
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .success(function (website) {
+                    vm.website = website;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
 
         function deleteWebsite(){
-            WebsiteService.deleteWebsite(vm.websiteId);
-            $location.url("/user/" + vm.userId + "/website/");
+            WebsiteService
+                .deleteWebsite(vm.websiteId)
+                .success(function () {
+                    $location.url("/user/" + vm.userId + "/website/");
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
 
         function updateWebsite(website) {
             if (website.name) {
-                WebsiteService.updateWebsite(vm.websiteId, website);
-                $location.url("/user/" + vm.userId + "/website/");
+                WebsiteService
+                    .updateWebsite(vm.websiteId, website)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/");
+                    })
+                    .error(function (error) {
+                        console.error(error);
+                    });
             }
             else {
                 vm.error = "Website Name cannot be left blank";
