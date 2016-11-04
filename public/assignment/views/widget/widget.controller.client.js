@@ -15,7 +15,14 @@
         vm.checkSafeYouTubeUrl = checkSafeYouTubeUrl;
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
+            WidgetService
+                .findWidgetsByPageId(vm.pageId)
+                .success(function (widgets) {
+                    vm.widgets = widgets;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
 
@@ -41,9 +48,16 @@
         vm.pageId = parseInt($routeParams['pid']);
 
         function addWidget(widgetType) {
-            vm.widgetId = WidgetService.createWidget(vm.pageId, {"widgetType": widgetType});
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId +
-                "/page/" + vm.pageId + "/widget/" + vm.widgetId);
+            WidgetService
+                .createWidget(vm.pageId, {"widgetType": widgetType})
+                .success(function (widgetId) {
+                    vm.widgetId = widgetId;
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId +
+                        "/page/" + vm.pageId + "/widget/" + vm.widgetId);
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
     }
 
@@ -59,18 +73,37 @@
         vm.widgetId = parseInt($routeParams.wgid);
 
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            WidgetService
+                .findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget = widget;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
 
         function deleteWidget() {
-            WidgetService.deleteWidget(vm.widgetId);
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+            WidgetService
+                .deleteWidget(vm.widgetId)
+                .success(function () {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
 
         function updateWidget(widget) {
-            WidgetService.updateWidget(vm.widgetId, widget);
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+            WidgetService
+                .updateWidget(vm.widgetId, widget)
+                .success(function () {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
     }
 })();

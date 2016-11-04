@@ -11,7 +11,14 @@
         vm.websiteId = parseInt($routeParams['wid'])
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
     }
@@ -24,14 +31,27 @@
         vm.websiteId = parseInt($routeParams['wid']);
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
 
         function addPage(page){
             if (page.name) {
-                PageService.createPage(vm.websiteId, page);
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                PageService
+                    .createPage(vm.websiteId, page)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                    })
+                    .error(function (error) {
+                        console.error(error);
+                    });
             }
             else {
                 vm.error = "Page Name cannot be left blank";
@@ -49,20 +69,46 @@
         vm.pageId = parseInt($routeParams['pid']);
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
-            vm.page = PageService.findPageById(vm.pageId);
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
+            PageService
+                .findPageById(vm.pageId)
+                .success(function (page) {
+                    vm.page = page;
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
         init();
 
         function deletePage(){
-            PageService.deletePage(vm.pageId);
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+            PageService
+                .deletePage(vm.pageId)
+                .success(function () {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
         }
 
         function updatePage(page) {
             if (page.name) {
-                PageService.updatePage(vm.pageId, page);
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                PageService
+                    .updatePage(vm.pageId, page)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                    })
+                    .error(function (error) {
+                        console.error(error);
+                    });
             }
             else {
                 vm.error = "Page Name cannot be left blank";

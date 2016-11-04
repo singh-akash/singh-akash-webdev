@@ -28,9 +28,11 @@ module.exports = function(app) {
         var query = req.query;
         if(query.password && query.username) {
             findUserByCredentials(req, res);
-        } else if(query.username) {
+        }
+        else if(query.username) {
             findUserByUsername(req, res);
-        } else {
+        }
+        else {
             res.send('0');
         }
     }
@@ -47,6 +49,7 @@ module.exports = function(app) {
         }
         res.send('0');
     }
+
     function findUserByUsername(req, res) {
         var username = req.query.username;
         for(var u in users) {
@@ -57,6 +60,7 @@ module.exports = function(app) {
         }
         res.send('0');
     }
+
     function findUserById(req, res) {
         var userId = parseInt(req.params.userId);
         for(var u in users) {
@@ -74,10 +78,11 @@ module.exports = function(app) {
         for(var u in users) {
             if(users[u]._id === userId) {
                 users[u] = user;
-                break;
+                res.sendStatus(200);
+                return;
             }
         }
-        res.send(200);
+        res.send('0');
     }
 
     function deleteUser(req, res) {
@@ -85,9 +90,10 @@ module.exports = function(app) {
         for(var u in users) {
             if(users[u]._id === userId) {
                 users.splice(parseInt(u), 1);
-                break;
+                res.sendStatus(200);
+                return;
             }
         }
-        res.send(200);
+        res.send('0');
     }
 };
