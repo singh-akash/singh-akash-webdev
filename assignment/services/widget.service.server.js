@@ -24,7 +24,7 @@ module.exports = function(app) {
         widget._id = (new Date()).getTime();
         widget.pageId = pageId;
         widgets.push(widget);
-        res.send(widget._id);
+        res.send(widget);
     }
 
     function findAllWidgetsForPage(req, res) {

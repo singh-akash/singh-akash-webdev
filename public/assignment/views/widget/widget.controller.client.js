@@ -50,8 +50,8 @@
         function addWidget(widgetType) {
             WidgetService
                 .createWidget(vm.pageId, {"widgetType": widgetType})
-                .success(function (widgetId) {
-                    vm.widgetId = widgetId;
+                .success(function (widget) {
+                    vm.widgetId = widget._id;
                     $location.url("/user/" + vm.userId + "/website/" + vm.websiteId +
                         "/page/" + vm.pageId + "/widget/" + vm.widgetId);
                 })
