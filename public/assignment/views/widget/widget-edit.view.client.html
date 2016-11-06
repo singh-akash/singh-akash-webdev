@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<div ng-include="'/assignment/views/widget/widget-' + model.widget.widgetType.toLowerCase() + '.view.client.html'">
+<div ng-if='model.widget.widgetType' ng-include="'/assignment/views/widget/widget-' + model.widget.widgetType.toLowerCase() + '.view.client.html'">
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

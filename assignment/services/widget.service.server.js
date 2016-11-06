@@ -1,5 +1,18 @@
 module.exports = function(app) {
 
+    var mime = require('mime');
+    var multer = require('multer');
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, __dirname+'/../../public/assignment/uploads')
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + '.' + mime.extension(file.mimetype));
+        }
+    });
+    var upload = multer({ storage: storage });
+
     var widgets = [
         { "_id": 123, "widgetType": "HEADER", "pageId": 321, "size": 2, "text": "GIZMODO" },
         { "_id": 124, "widgetType": "HEADER", "pageId": 432, "size": 2, "text": "GIZMODO" },
@@ -20,6 +33,7 @@ module.exports = function(app) {
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
     app.put('/api/page/:pageId/widget', sortWidgets);
+    app.post ('/api/upload', upload.single('myFile'), uploadImage);
 
     function createWidget(req, res) {
         var widget = req.body;
@@ -124,5 +138,36 @@ module.exports = function(app) {
             }
         }
         res.sendStatus(200);
+    }
+
+    function uploadImage(req, res) {
+        var userId        = req.body.userId;
+        var websiteId     = req.body.websiteId;
+        var pageId        = req.body.pageId;
+        var widgetId      = req.body.widgetId;
+        var width         = req.body.width;
+        var myFile        = req.file;
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+
+        for (var w in widgets) {
+            if (widgets[w]._id == widgetId) {
+                widgets[w].name = originalname;
+                widgets[w].width = width;
+                widgets[w].url = "/assignment/uploads/" + filename;
+                res.redirect("/assignment/#/user/" + userId +
+                    "/website/" + websiteId +
+                    "/page/" + pageId +
+                    "/widget/" + widgetId);
+                return;
+            }
+        }
+
+        res.redirect("");
     }
 };
