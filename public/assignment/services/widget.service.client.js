@@ -5,7 +5,6 @@
 
     function WidgetService($http) {
 
-
         var api = {
             createWidget : createWidget,
             findWidgetsByPageId : findWidgetsByPageId,
