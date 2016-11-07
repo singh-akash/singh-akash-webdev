@@ -141,12 +141,19 @@ module.exports = function(app) {
     }
 
     function uploadImage(req, res) {
-        var userId        = req.body.userId;
-        var websiteId     = req.body.websiteId;
-        var pageId        = req.body.pageId;
-        var widgetId      = req.body.widgetId;
-        var width         = req.body.width;
-        var myFile        = req.file;
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+        var widgetId = req.body.widgetId;
+        var width = req.body.width;
+        var myFile = req.file;
+
+        if (!myFile || !myFile.originalname) {
+            res.redirect("/assignment/#/user/" + userId +
+                "/website/" + websiteId +
+                "/page/" + pageId +
+                "/widget/" + widgetId);
+        }
 
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;     // new file name in upload folder
