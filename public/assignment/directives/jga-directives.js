@@ -1,9 +1,9 @@
-(function(){
+(function() {
     angular
         .module("jga-directives", [])
-        .directive("sortable", sortable);
+        .directive("jgaSortable", jgaSortable);
 
-    function sortable(){
+    function jgaSortable(){
 
         function linker(scope, element, attributes) {
             element.sortable({
@@ -13,7 +13,7 @@
                 },
                 stop: function(event, ui) {
                     final = $(ui.item).index();
-                    scope.sortableController.sort(initial, final);
+                    scope.jgaSortableController.sort(initial, final);
                 }
             });
         }
@@ -21,12 +21,12 @@
         return {
             scope: {},
             link: linker,
-            controller: sortableController,
-            controllerAs: 'sortableController'
+            controller: jgaSortableController,
+            controllerAs: 'jgaSortableController'
         }
     }
 
-    function sortableController($routeParams, WidgetService) {
+    function jgaSortableController($routeParams, WidgetService) {
         var vm = this;
         vm.sort = sort;
 
