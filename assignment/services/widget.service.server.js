@@ -109,34 +109,30 @@ module.exports = function(app) {
         var end = parseInt(req.query.final);
 
         // Find and store start position in widgets array
-        var spliceIndex = 0;
+        var replStartIndex = -1;
+        var replEndIndex = -1;
         var occurrences = 0;
+
         for (var w in widgets) {
             if (widgets[w].pageId === pageId) {
                 if (occurrences === start) {
-                    spliceIndex = parseInt(w);
-                    break;
+                    replStartIndex = parseInt(w);
+                    if (replEndIndex != -1) {
+                        break;
+                    }
                 }
-                else {
-                    occurrences++;
+                if (occurrences === end) {
+                    replEndIndex = parseInt(w);
+                    if (replStartIndex != -1) {
+                        break;
+                    }
                 }
+                occurrences++;
             }
         }
 
-        // Find end position in widgets array
-        // Update positions
-        occurrences = 0;
-        for (var w in widgets) {
-            if (widgets[w].pageId === pageId) {
-                if (occurrences === end) {
-                    widgets.splice(parseInt(w), 0, widgets.splice(spliceIndex, 1)[0]);
-                    break;
-                }
-                else {
-                    occurrences++;
-                }
-            }
-        }
+        widgets.splice(parseInt(replEndIndex), 0, widgets.splice(replStartIndex, 1)[0]);
+
         res.sendStatus(200);
     }
 

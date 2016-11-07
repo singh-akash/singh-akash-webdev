@@ -39,7 +39,7 @@
 
         function sortWidgets(initial, final, pageId) {
             var url =  "/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final;
-            $http.put(url);
+            return $http.put(url);
         }
     }
 })();
