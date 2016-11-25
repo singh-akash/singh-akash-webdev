@@ -544,8 +544,12 @@ img::-moz-selection {
     font-size: 6vh;
 }
 
-.view-height-5 {
-    font-size: 5vh;
+.view-height-li {
+    font-size: 3.0vh;
+}
+
+.view-height-li-sm {
+    font-size: 2.2vh;
 }
 
 .view-height-7 {
@@ -606,7 +610,7 @@ a:hover {
 }
 
 .pad-ends-8 {
-    margin-top: -6vh;
+    margin-top: -5vh;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -621,4 +625,9 @@ a:hover {
 
 .white {
     color: ghostwhite;
+}
+
+.img-width{
+    width: 30vw;
+    height: 30vw;
 }
