@@ -549,7 +549,7 @@ img::-moz-selection {
 }
 
 .view-height-li-sm {
-    font-size: 2.5vh;
+    font-size: 2.3vh;
 }
 
 .view-height-7 {
@@ -628,6 +628,6 @@ a:hover {
 }
 
 .img-width{
-    width: 30vw;
-    height: 30vw;
+    width: 25vw;
+    height: 25vw;
 }
