@@ -606,6 +606,7 @@ a:hover {
 }
 
 .pad-ends-8 {
+    margin-top: -6vh;
     padding-left: 8px;
     padding-right: 8px;
 }

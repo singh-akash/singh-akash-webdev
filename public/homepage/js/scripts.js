@@ -3,7 +3,8 @@
 
     $('body').scrollspy({
         target: '.navbar-fixed-top',
-        offset: 60
+        //offset: 60
+        offset: 80
     });
 
     $('#topNav').affix({
