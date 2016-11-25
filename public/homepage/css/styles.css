@@ -636,7 +636,7 @@ a:hover {
 
 @media all and (orientation:landscape){
     .img-width {
-        width: 10vh;
-        height: 10vh;
+        width: 0vh;
+        height: 0vh;
     }
 }
