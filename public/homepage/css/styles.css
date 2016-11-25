@@ -437,22 +437,6 @@ textarea {
     transition: all .35s;
 }
 
-
-
-/*
-.btn-default:visited,
-.btn-default:hover,
-.btn-default:focus,
-.btn-default.focus,
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-    border-color: #ededed;
-    color: #222;
-    background-color: #ededed;
-    opacity: 0.8;
-}*/
-
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
@@ -547,8 +531,8 @@ img::-moz-selection {
 }
 
 .full-screen-last {
-    height: -moz-calc(100vh - 50px); /* Firefox -> 100vh - padding top - padding bottom*/
-    height: -webkit-calc(100vh - 50px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
+    height: -moz-calc(100vh - 40px); /* Firefox -> 100vh - padding top - padding bottom*/
+    height: -webkit-calc(100vh - 40px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
 }
 
 
