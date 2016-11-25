@@ -610,7 +610,7 @@ a:hover {
 }
 
 .pad-ends-8 {
-    margin-top: -7vh;
+    margin-top: -8vh;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -627,7 +627,16 @@ a:hover {
     color: ghostwhite;
 }
 
-.img-width{
-    width: 25vw;
-    height: 25vw;
+@media all and (orientation:portrait){
+    .img-width {
+        width: 25vw;
+        height: 25vw;
+    }
+}
+
+@media all and (orientation:landscape){
+    .img-width {
+        width: 10vh;
+        height: 10vh;
+    }
 }
