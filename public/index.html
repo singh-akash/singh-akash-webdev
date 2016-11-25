@@ -1,25 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Akash Singh | MS Computer Science</title>
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="homepage/css/styles.css"/>
 </head>
 <body>
-    <h1 class="text-center">Web Dev Course Home Page</h1>
-    <br>
-    <h4 class="text-center">
-        Welcome to my homepage. This page is dedicated to course CS5610 (Web Development) at Northeastern University
-    </h4>
-    <br>
-    <h2 class="text-center">Important links</h2>
-    <div>
-        <a class="btn btn-default btn-block" href="project/index.html">Project</a>
-        <a class="btn btn-default btn-block" href="assignment/index.html">Assignment</a>
-        <a class="btn btn-default btn-block" href="test/index.html">Test MongoDB</a>
-        <a class="btn btn-default btn-block" href="https://github.com/singh-akash/singh-akash-webdev" target="_blank">My github repository</a>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#home">AKASH SINGH | MS CS</a>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll" href="#intro">Intro</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#code-links">Links</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="home" class="full-screen">
+        <div class="auto-margin">
+            <div id="text-open" class="text-faded">
+                <h1 class="bold">Thank you for visiting my website!<br>A short video to greet you.</h1>
+            </div>
+        </div>
+
+        <video autoplay object-fit="fill" class="fillWidth fadeIn wow collapse in" data-wow-delay="1.5s" muted="muted" id="video-background">
+            <source src="homepage/media/home.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+    </header>
+    <div id="intro">
+    <section class="bg-primary img-responsive full-screen hidden-xs hidden-sm hidden-md">
+        <div class = "container">
+            <div class="row">
+                <div class="text-center pad-ends-8">
+                    <u><h1 class="view-height-7 bold white">Who Am I?</h1></u>
+                    <br>
+                    <h3 class="bolder wow text-faded view-height-5">
+                        Master of Science in Computer Science
+                        <br>
+                        Specialization Areas:
+                        <br>
+                        Artificial Intelligence, Database Management and Distributed Computing
+                        <br>
+                        Nvidia - Data Analytics and Distributed Systems
+                        <br>
+                        ACI Worldwide - Payments processing applications
+                        <br>
+                        Love to build optimized, robust and scalable solutions
+                        <br>
+                        Problem Solver, Programming Language is not a bar
+                        <br>
+                    </h3>
+                    <br>
+                    <h1><a href="homepage/media/Singh_Akash.pdf" target="_blank" class="btn btn-default btn-xl page-scroll view-height-3">Resume</a></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="bg-primary-small img-responsive full-screen hidden-lg hidden-xl">
+            <div class = "container">
+                <div class="row">
+                    <div class="text-center pad-ends-8">
+                        <u><h1 class="view-height-6 white bold">Who Am I?</h1></u>
+                        <br>
+                        <h3 class="bolder wow text-faded view-height-3">
+                            Master of Science in Computer Science
+                            <br>
+                            Specialization Areas:
+                            <br>
+                            Artificial Intelligence, Database Management and Distributed Computing
+                            <br>
+                            Nvidia - Data Analytics and Distributed Systems
+                            <br>
+                            ACI Worldwide - Payments processing applications
+                            <br>
+                            Love to build optimized, robust and scalable solutions
+                            <br>
+                            Problem Solver, Programming Language is not a bar
+                            <br>
+                        </h3>
+                        <h1><a href="homepage/media/Singh_Akash.pdf" target="_blank" class="btn btn-default btn-xl page-scroll view-height-3">Resume</a></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</body>
+    <!--<section class="bg-dark img-responsive full-screen hidden-lg" id="intro">
+        <div class = "container">
+            <div class="row">
+                <div class="text-center pad-ends-8">
+                    <h1 class="view-height-6">Who Am I?</h1>
+                    <h3 class="bolder wow text-faded view-height-3">
+                        Master of Science in Computer Science
+                        <br>
+                        Specialization Areas:
+                        <br>
+                        Artificial Intelligence, Database Management and Distributed Computing
+                        <br>
+                        Nvidia - Data Analytics and Distributed Systems
+                        <br>
+                        ACI Worldwide - Payments processing applications
+                        <br>
+                        Love to build optimized, robust and scalable solutions
+                        <br>
+                        Problem Solver, Programming Language is not a bar
+                        <br>
+                    </h3>
+                    <br>
+                    <h1><a href="homepage/media/Singh_Akash.pdf" target="_blank" class="btn btn-default btn-xl page-scroll view-height-3">Resume</a></h1>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <div id="code-links">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-sm-6">
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner gallery-box">
+                            <div class="item active">
+                                <a href="assignment/index.html" target="_blank">
+                                <img src="homepage/media/link_a.jpg" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <h1 class="bolder cursive view-link-font">Assignment</h1>
+                                    <br>
+                                </div>
+                                <div class="gallery-box-caption">
+                                    <div class="gallery-box-content">
+                                        <div>
+                                            <i class="icon-lg ion-ios-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner gallery-box">
+                            <div class="item active">
+                                <a href="project/index.html" target="_blank">
+                                    <img src="homepage/media/link_b.jpg" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        <h1 class="bolder cursive view-link-font">Project</h1>
+                                        <br>
+                                    </div>
+                                    <div class="gallery-box-caption">
+                                        <div class="gallery-box-content">
+                                            <div>
+                                                <i class="icon-lg ion-ios-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-sm-6">
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner gallery-box">
+                            <div class="item active">
+                                <a href="https://github.com/singh-akash/singh-akash-webdev" target="_blank">
+                                    <img src="homepage/media/link_c.jpg" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        <h1 class="bolder cursive view-link-font">WebDev Code</h1>
+                                        <br>
+                                    </div>
+                                    <div class="gallery-box-caption">
+                                        <div class="gallery-box-content">
+                                            <div>
+                                                <i class="icon-lg ion-ios-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner gallery-box">
+                            <div class="item active">
+                                <a href="project/index.html" target="_blank">
+                                    <img src="homepage/media/link_d.jpg" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        <h1 class="bolder cursive view-link-font">Project Proposal</h1>
+                                        <br>
+                                    </div>
+                                    <div class="gallery-box-caption">
+                                        <div class="gallery-box-content">
+                                            <div>
+                                                <i class="icon-lg ion-ios-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="contact" class="container-fluid bg-contact img-responsive full-screen-last">
+        <div class="text-faded text-center">
+            <h1 class="bold view-height-6"><u>Contact Details</u></h1>
+            <br>
+            <h2>Email: <a class="white" href="mailto:singh.aka@husky.neu.edu">singh.aka@husky.neu.edu</a></h2>
+            <h2>Cell: (617) 372 7259</h2>
+            <br>
+            <h1 class="bold view-height-6"><u>Social Media links</u></h1>
+            <br>
+            <br>
+
+            <div class="col-sm-3 col-xs-6 text-center">
+                <a class="text-faded view-width-social" target="_blank"
+                   href="https://www.linkedin.com/in/singhaka"><i class="fa fa-linkedin"></i></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <a class="text-faded view-width-social" target="_blank"
+                   href="https://www.github.com/singh-akash"><i class="fa fa-github"></i></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <a class="text-faded view-width-social" target="_blank"
+                   href="https://www.facebook.com/akashsingh245"><i class="fa fa-facebook"></i></a>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <a class="text-faded view-width-social" target="_blank"
+                   href="https://www.instagram.com/akashsingh245"><i class="fa fa-instagram"></i></a>
+                <br>
+                <br>
+            </div>
+        </div>
+    </section>
+    <!--scripts loaded here from cdn for performance -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script src="homepage/js/scripts.js"></script>
+  </body>
 </html>
