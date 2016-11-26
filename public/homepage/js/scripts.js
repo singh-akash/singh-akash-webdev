@@ -37,9 +37,8 @@
 
      setTimeout(function(){
         document.getElementById("video-background").style.visibility = "hidden";
-        //document.getElementById("text-close").style.visibility = "visible";
-        document.getElementById("text-open").innerHTML = '<h1 class="bold">Thank you!<br>Scroll Down to know more about me.<br>Have a good day!</h1>';
+        document.getElementById("text-open").innerHTML = '<h1 class="bold">Thank you!<br>Please, scroll down to know more about me.<br>Have a good day!</h1>';
          document.getElementById("text-open").style.visibility = "visible";
-     }, 212000);
+     }, 117000);
 
 })(jQuery);
