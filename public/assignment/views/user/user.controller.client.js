@@ -62,7 +62,7 @@
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
         
-        var userId = $routeParams['uid'];
+        var userId = parseInt($routeParams['uid']);
 
         function init() {
             UserService
