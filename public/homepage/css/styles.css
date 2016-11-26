@@ -531,8 +531,8 @@ img::-moz-selection {
 }
 
 .full-screen-last {
-    height: -moz-calc(100vh - 40px); /* Firefox -> 100vh - padding top - padding bottom*/
-    height: -webkit-calc(100vh - 40px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
+    min-height: -moz-calc(100vh - 40px); /* Firefox -> 100vh - padding top - padding bottom*/
+    min-height: -webkit-calc(100vh - 40px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
 }
 
 
@@ -543,6 +543,7 @@ img::-moz-selection {
 .view-height-6 {
     font-size: 6vh;
 }
+
 
 .view-height-li {
     font-size: 3.0vh;
