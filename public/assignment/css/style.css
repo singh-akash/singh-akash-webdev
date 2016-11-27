@@ -93,3 +93,7 @@ a:hover {
     top: 0;
     left: 0;
 }
+
+.white {
+    background: white !important;
+}

@@ -16,9 +16,11 @@
             <label for="placeholder">Placeholder</label>
             <input ng-model="model.widget.placeholder" type="text" class="form-control" id="placeholder" placeholder="Alphonse"/>
         </div>
-        <div class="form-group">
-            <label for="formatted">Formatted</label>
-            <input ng-model="model.widget.formatted" type="checkbox" id="formatted"/>
+        <div class="form-group input-group">
+            <input type="text" readonly value="Formatted" class="form-control white"/>
+            <span class="input-group-addon">
+                    <input ng-model="model.widget.formatted" type="checkbox" id="formatted"/>
+            </span>
         </div>
         <a class="btn btn-danger btn-block" ng-click="model.deleteWidget()">Delete</a>
     </form>
