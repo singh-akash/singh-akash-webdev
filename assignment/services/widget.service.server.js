@@ -102,36 +102,17 @@ module.exports = function(app, model) {
     }
 
     function sortWidgets(req, res) {
-        var pageId = parseInt(req.params.pageId);
+        var pageId = req.params.pageId;
         var start = parseInt(req.query.initial);
         var end = parseInt(req.query.final);
 
-        // Find and store start position in widgets array
-        var replStartIndex = -1;
-        var replEndIndex = -1;
-        var occurrences = 0;
-
-        for (var w in widgets) {
-            if (widgets[w].pageId === pageId) {
-                if (occurrences === start) {
-                    replStartIndex = parseInt(w);
-                    if (replEndIndex != -1) {
-                        break;
-                    }
-                }
-                if (occurrences === end) {
-                    replEndIndex = parseInt(w);
-                    if (replStartIndex != -1) {
-                        break;
-                    }
-                }
-                occurrences++;
-            }
-        }
-
-        widgets.splice(parseInt(replEndIndex), 0, widgets.splice(replStartIndex, 1)[0]);
-
-        res.sendStatus(200);
+        model.widgetModel.reorderWidget(pageId, start, end)
+            .then(function (status) {
+                res.sendStatus(200);
+            },
+            function (err) {
+                res.sendStatus(400).send(err);
+            })
     }
 
     function uploadImage(req, res) {
@@ -149,26 +130,32 @@ module.exports = function(app, model) {
                 "/widget/" + widgetId);
         }
 
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;     // new file name in upload folder
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
+        var originalname = myFile.originalname; // file name on user's computer
+        var filename = myFile.filename;     // new file name in upload folder
+        var path = myFile.path;         // full path of uploaded file
+        var destination = myFile.destination;  // folder where file is saved to
+        var size = myFile.size;
+        var mimetype = myFile.mimetype;
 
-        for (var w in widgets) {
-            if (widgets[w]._id == widgetId) {
-                widgets[w].name = originalname;
-                widgets[w].width = width;
-                widgets[w].url = "/assignment/uploads/" + filename;
-                res.redirect("/assignment/#/user/" + userId +
-                    "/website/" + websiteId +
-                    "/page/" + pageId +
-                    "/widget/" + widgetId);
-                return;
-            }
-        }
+        var url = "/assignment/uploads/" + filename;
 
-        res.redirect("");
+        var widget = {};
+        widget._id = widgetId;
+        widget._name = originalname;
+        widget.width = width;
+        widget.url = url;
+
+        model
+            .widgetModel
+            .updateWidget(widgetId, widget)
+            .then(function (status) {
+                    res.redirect("/assignment/#/user/" + userId +
+                        "/website/" + websiteId +
+                        "/page/" + pageId +
+                        "/widget/" + widgetId);
+                },
+                function (err) {
+                    res.sendStatus(400).send(err);
+                });
     }
 };
