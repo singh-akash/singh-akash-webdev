@@ -7,7 +7,7 @@
 
     function WebsiteListController($routeParams, WebsiteService) {
         var vm = this;
-        vm.userId = parseInt($routeParams['uid']);
+        vm.userId = $routeParams['uid'];
         function init() {
             WebsiteService
                 .findWebsitesByUser(vm.userId)
@@ -24,7 +24,7 @@
     function NewWebsiteController($location, $routeParams, WebsiteService) {
         var vm = this;
         vm.addWebsite = addWebsite;
-        vm.userId = parseInt($routeParams['uid']);
+        vm.userId = $routeParams['uid'];
 
         function init() {
             WebsiteService
@@ -60,8 +60,8 @@
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
 
-        vm.websiteId = parseInt($routeParams['wid']);
-        vm.userId = parseInt($routeParams['uid']);
+        vm.websiteId = $routeParams['wid'];
+        vm.userId = $routeParams['uid'];
 
         function init() {
             WebsiteService

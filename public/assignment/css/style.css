@@ -81,3 +81,15 @@ a:hover {
     z-index: 10;
     background-color: white;
 }
+
+.youtube-widget {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    margin-right: 35px;
+}
+
+.youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
