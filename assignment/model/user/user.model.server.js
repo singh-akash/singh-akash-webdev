@@ -8,6 +8,7 @@ module.exports = function () {
     var api = {
         createUser: createUser,
         deleteUser: deleteUser,
+        deleteWebsiteRef: deleteWebsiteRef,
         findUserByCredentials: findUserByCredentials,
         findUserById: findUserById,
         findUserByUsername: findUserByUsername,
@@ -22,9 +23,39 @@ module.exports = function () {
     }
 
     function deleteUser(userId) {
-        return UserModel.remove({
-            _id: userId
+        return new Promise(function (success, err) {
+            UserModel
+                .findById(userId)
+                .then(function (user) {
+                        UserModel
+                            .remove({ _id: userId })
+                            .then(function (status) {
+                                model
+                                    .websiteModel
+                                    .deleteUserWebsites(userId)
+                                    .then(function (status) {
+                                        success(200);
+                                    }, function (error) {
+                                        err(error);
+                                    });
+                            }, function (error) {
+                                err(error);
+                            });
+                    },
+                    function (error) {
+                        err(error);
+                    });
         });
+    }
+
+    function deleteWebsiteRef(userId, websiteId) {
+        return UserModel.update(
+            {
+                _id: userId
+            },
+            {
+                $pull: {websites: websiteId}
+            });
     }
 
     function findUserByCredentials(username, password) {

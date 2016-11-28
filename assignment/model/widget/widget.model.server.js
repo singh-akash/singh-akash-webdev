@@ -7,6 +7,7 @@ module.exports = function () {
     var api = {
         createWidget: createWidget,
         deleteWidget: deleteWidget,
+        deletePageWidgets: deletePageWidgets,
         findAllWidgetsForPage: findAllWidgetsForPage,
         findWidgetById: findWidgetById,
         reorderWidget: reorderWidget,
@@ -39,8 +40,35 @@ module.exports = function () {
     }
 
     function deleteWidget(widgetId) {
+        return new Promise(function (success, err) {
+            WidgetModel
+                .findById(widgetId)
+                .then(function (widget) {
+                        var pageId = widget._page;
+                        WidgetModel
+                            .remove({ _id: widgetId })
+                            .then(function (status) {
+                                model
+                                    .pageModel
+                                    .deleteWidgetRef(pageId, widgetId)
+                                    .then(function (page) {
+                                        success(200);
+                                    }, function (error) {
+                                        err(error);
+                                    });
+                            }, function (error) {
+                                err(error);
+                            });
+                    },
+                    function (error) {
+                        err(error);
+                    });
+        });
+    }
+
+    function deletePageWidgets(pageId) {
         return WidgetModel.remove({
-            _id: widgetId
+            _page: pageId
         });
     }
 

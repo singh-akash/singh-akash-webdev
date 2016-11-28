@@ -97,3 +97,7 @@ a:hover {
 .white {
     background: white !important;
 }
+
+.display-none {
+    display: none;
+}
