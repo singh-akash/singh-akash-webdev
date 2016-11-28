@@ -85,17 +85,18 @@ module.exports = function () {
                             .remove({ _id: pageId })
                             .exec()
                             .then(function (status) {
-                                model
-                                    .widgetModel
-                                    .deletePageWidgets(pageId)
-                                    .then(function (status) {
-                                        success(200);
-                                    }, function (error) {
-                                        err(error);
-                                    })
+                                success(200);
                             }, function (error) {
                                 console.log(error);
                             });
+                        model
+                            .widgetModel
+                            .deletePageWidgets(pageId)
+                            .then(function (status) {
+                                success(200);
+                            }, function (error) {
+                                err(error);
+                            })
                     }
                     success(200);
                 }, function (error) {

@@ -88,19 +88,20 @@ module.exports = function () {
                         WebsiteModel
                             .remove({ _id: websiteId })
                             .then(function (status) {
-                                model
-                                    .pageModel
-                                    .deleteWebsitePages(websiteId)
-                                    .then(function (status) {
-                                        success(200);
-                                    }, function (error) {
-                                        err(error);
-                                    });
+                                success(200);
                             }, function (error) {
                                 err(error);
                             });
-                        success(200);
+                        model
+                            .pageModel
+                            .deleteWebsitePages(websiteId)
+                            .then(function (status) {
+                                success(200);
+                            }, function (error) {
+                                err(error);
+                            });
                     }
+                    success(200);
                 }, function (error) {
                     err(error);
                 })
