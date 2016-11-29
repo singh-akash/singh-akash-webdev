@@ -51,7 +51,7 @@
                             ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
                               ['indent','outdent'],['html']]"></div>
             <input ng-if="!widget.formatted && (!widget.rows || widget.rows === 1)"
-                   placeholder="{{widget.textInput.placeholder}}" class="form-control"/>
+                   placeholder="{{widget.placeholder}}" value={{widget.text}} class="form-control"/>
             <textarea ng-if="!widget.formatted && (widget.rows > 1)"
                       rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
                       class="form-control">{{widget.text}}</textarea>
