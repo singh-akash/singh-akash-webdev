@@ -620,12 +620,6 @@ a:hover {
     color: ghostwhite;
 }
 
-/*
-.view-height-li-sm {
-    font-size: 2.3vh;
-}
-*/
-
 @media all and (orientation:portrait){
     .img-width {
         width: 25vw;
@@ -635,8 +629,8 @@ a:hover {
 
 @media all and (orientation:landscape){
     .img-width {
-        width: 0vh;
-        height: 0vh;
+        width: 30vh;
+        height: 30vh;
     }
 }
 
