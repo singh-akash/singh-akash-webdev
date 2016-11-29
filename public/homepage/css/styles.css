@@ -530,14 +530,14 @@ img::-moz-selection {
     height: -webkit-calc(100vh); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
 }
 
+.full-screen-min {
+    min-height: -moz-calc(100vh); /* Firefox -> 100vh - padding top - padding bottom*/
+    min-height: -webkit-calc(100vh); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
+}
+
 .full-screen-last {
     min-height: -moz-calc(100vh - 40px); /* Firefox -> 100vh - padding top - padding bottom*/
     min-height: -webkit-calc(100vh - 40px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
-}
-
-
-.view-height-3 {
-    font-size: 3.5vh;
 }
 
 .view-height-6 {
@@ -549,16 +549,8 @@ img::-moz-selection {
     font-size: 3.0vh;
 }
 
-.view-height-li-sm {
-    font-size: 2.3vh;
-}
-
 .view-height-7 {
     font-size: 7.5vh;
-}
-
-.view-link-font {
-    font-size: 6.5vh;
 }
 
 .view-width-social {
@@ -628,6 +620,12 @@ a:hover {
     color: ghostwhite;
 }
 
+/*
+.view-height-li-sm {
+    font-size: 2.3vh;
+}
+*/
+
 @media all and (orientation:portrait){
     .img-width {
         width: 25vw;
@@ -639,5 +637,45 @@ a:hover {
     .img-width {
         width: 0vh;
         height: 0vh;
+    }
+}
+
+@media all and (orientation:portrait){
+    .view-height-li-sm {
+        font-size: 2.3vh;
+    }
+}
+
+@media all and (orientation:landscape){
+    .view-height-li-sm {
+        font-size: 4.0vh;
+    }
+}
+
+@media all and (orientation:portrait){
+    .view-height-3 {
+        font-size: 3.5vh;
+    }
+}
+
+@media all and (orientation:landscape){
+    .view-height-3 {
+        font-size: 4.5vh;
+    }
+}
+
+.view-link-font {
+    font-size: 8.0vh;
+}
+
+@media all and (orientation:portrait){
+    .view-link-font {
+        font-size: 5.5vh;
+    }
+}
+
+@media all and (max-width: 800px) and (orientation:landscape){
+    .view-link-font {
+        font-size: 6.0vw;
     }
 }
