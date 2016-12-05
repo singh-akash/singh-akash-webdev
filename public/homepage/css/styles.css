@@ -59,7 +59,7 @@ p {
     line-height: 18px;
 }
 
-.bg-primary {
+.bg-aboutme {
     background-color: #333;
     background: url("../media/aboutme.jpg");
     background-size: auto;
@@ -67,7 +67,7 @@ p {
     background-attachment: fixed;
 }
 
-.bg-primary-small {
+.bg-aboutme-small {
     background-color: #333;
     background: url("../media/aboutme_small.jpg");
     background-size: auto;
@@ -75,6 +75,13 @@ p {
     background-attachment: fixed;
 }
 
+.bg-timeline {
+    background-color: #333;
+    background: url("../media/timeline.jpg");
+    background-size: auto;
+    background-position: center center;
+    background-attachment: fixed;
+}
 
 .bg-dark {
     color: #eee;
@@ -540,11 +547,6 @@ img::-moz-selection {
     min-height: -webkit-calc(100vh - 40px); /* Chrome, Safari -> 100vh - padding top - padding bottom*/
 }
 
-.view-height-6 {
-    font-size: 6vh;
-}
-
-
 .view-height-li {
     font-size: 3.0vh;
 }
@@ -647,6 +649,19 @@ a:hover {
 }
 
 @media all and (orientation:portrait){
+    .view-height-6 {
+        font-size: 6vh;
+    }
+}
+
+@media all and (orientation:landscape){
+    .view-height-6 {
+        font-size: 9vh;
+    }
+}
+
+
+@media all and (orientation:portrait){
     .view-height-3 {
         font-size: 3.5vh;
     }
@@ -654,7 +669,7 @@ a:hover {
 
 @media all and (orientation:landscape){
     .view-height-3 {
-        font-size: 4.5vh;
+        font-size: 6.5vh;
     }
 }
 
@@ -672,4 +687,26 @@ a:hover {
     .view-link-font {
         font-size: 6.0vw;
     }
+}
+
+.rotate{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    overflow:hidden;
+
+}
+
+.rotate:hover
+{
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
 }
