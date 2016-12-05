@@ -4,15 +4,15 @@ module.exports = function(app)
     app.post("/api/test", createMessage);
     app.delete("/api/test/:id", deleteMessage);
 
-    var connectionString = 'mongodb://heroku_q902xh5w:v72hd7qnt7gklqeuj8imp1t2dm@ds033086.mlab.com:33086/heroku_q902xh5w';
-    //var connectionString = 'mongodb://127.0.0.1:27017/test';
+    var connectionString = "mongodb://localhost/cs5610-assignment";
 
-    if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
-        connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-            process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-            process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-            process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-            process.env.OPENSHIFT_APP_NAME;
+    if(process.env.HEROKU_MONGODB_DB_PASSWORD) {
+        connectionString = "mongodb://" +
+            process.env.HEROKU_MONGODB_DB_USERNAME + ":" +
+            process.env.HEROKU_MONGODB_DB_PASSWORD + "@" +
+            process.env.HEROKU_MONGODB_DB_HOST + ':' +
+            process.env.HEROKU_MONGODB_DB_PORT + '/' +
+            process.env.HEROKU_APP_NAME;
     }
 
     var mongoose = require("mongoose");

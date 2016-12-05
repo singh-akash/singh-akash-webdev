@@ -9,14 +9,14 @@
         var vm = this;
         vm.login = login;
 
-        function login(username, password) {
-            if (!(username && password)) {
+        function login(user) {
+            if (!(user.username && user.password)) {
                 vm.error = "Please enter username and password";
                 return;
             }
 
             UserService
-                .findUserByCredentials(username, password)
+                .login(user)
                 .success(function (user) {
                     if(user === '0') {
                         vm.error = "Invalid username and password combination";
@@ -26,6 +26,9 @@
                     }
                 })
                 .error(function (error) {
+                    if (error == "Unauthorized") {
+                        vm.error = "Invalid username and password combination";
+                    }
                     console.error(error);
                 });
         }
@@ -39,7 +42,7 @@
             if (user && user.username && user.password) {
                 if (user.password === user.confirmPassword) {
                     UserService
-                        .createUser(user)
+                        .register(user)
                         .success(function (user) {
                             $location.url("/user/" + user._id);
                         })
@@ -61,15 +64,15 @@
         var vm = this;
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
-        
-        var userId = $routeParams['uid'];
+        vm.logout = logout;
 
         function init() {
             UserService
-                .findUserById(userId)
+                .findCurrentUser()
                 .success(function (user) {
                     if (user != '0') {
                         vm.user = user;
+                        vm.userId = user._id;
                     }
                 })
                 .error(function (error) {
@@ -77,10 +80,22 @@
                 });
         }
         init();
-        
+
+        function logout() {
+            UserService
+                .logout()
+                .success(function () {
+                    $location.url("/login");
+                })
+                .error(function (err) {
+                    console.log("Error logging out user");
+                    console.log(err);
+                });
+        }
+
         function deleteUser() {
             UserService
-                .deleteUser(userId)
+                .deleteUser(vm.userId)
                 .success(function () {
                     $location.url("/login");
                 })
@@ -90,7 +105,7 @@
         }
         function updateUser(user){
             if (user.username) {
-                UserService.updateUser(userId, user);
+                UserService.updateUser(vm.userId, user);
             }
             else {
                 vm.error = "Username cannot be left blank"

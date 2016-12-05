@@ -13,6 +13,8 @@ module.exports = function () {
         findUserById: findUserById,
         findUserByUsername: findUserByUsername,
         findWebsitesForUser: findWebsitesForUser,
+        findUserByFacebookId: findUserByFacebookId,
+        findUserByGoogleId: findUserByGoogleId,
         setModel: setModel,
         updateUser: updateUser
     };
@@ -80,6 +82,14 @@ module.exports = function () {
         return UserModel.findOne({
             username: username
         });
+    }
+
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+    }
+
+    function findUserByGoogleId(googleId) {
+        return UserModel.findOne({'google.id': googleId});
     }
 
     function updateUser(userId, user) {
