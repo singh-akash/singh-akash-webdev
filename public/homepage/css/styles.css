@@ -624,15 +624,15 @@ a:hover {
 
 @media all and (orientation:portrait){
     .img-width {
-        width: 25vw;
-        height: 25vw;
+        width: 35vw;
+        height: 35vw;
     }
 }
 
 @media all and (orientation:landscape){
     .img-width {
-        width: 30vh;
-        height: 30vh;
+        width: 40vh;
+        height: 40vh;
     }
 }
 
