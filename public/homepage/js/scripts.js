@@ -1,9 +1,13 @@
 (function($) {
     //"use strict";
 
+    $('#status').delay(350).fadeOut();
+    $('#preload').delay(350).fadeOut('slow');
+    $('body').delay(700).css({'overflow':'visible'});
+
+
     $('body').scrollspy({
         target: '.navbar-fixed-top',
-        //offset: 60
         offset: 80
     });
 
@@ -33,7 +37,7 @@
 
     setTimeout(function(){
         document.getElementById("text-open").style.visibility = "hidden";
-    }, 2000);
+    }, 3000);
 
      setTimeout(function(){
         document.getElementById("video-background").style.visibility = "hidden";

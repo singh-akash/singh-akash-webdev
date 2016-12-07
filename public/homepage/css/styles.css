@@ -732,3 +732,25 @@ a:hover {
     font-size: 28px;
     color: #2390bb;
 }
+
+#preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff; /* change if the mask should have another color then white */
+    z-index: 99; /* makes sure it stays on top */
+}
+
+#status {
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-image: url(../media/status.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+}
