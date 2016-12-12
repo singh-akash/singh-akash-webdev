@@ -117,6 +117,7 @@
 
         function updateUser(user){
             if (user.username && user.username != "") {
+                vm.error = null;
                 UserService.updateUser(vm.userId, user);
             }
             else {
