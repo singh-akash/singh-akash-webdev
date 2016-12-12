@@ -15,7 +15,7 @@
                 return;
             }
 
-            if (user.username == "" || user.password) {
+            if (user.username == "" || user.password == "") {
                 vm.error = "Please fix the errors in the form";
                 return;
             }
