@@ -1,8 +1,12 @@
+<div ng-show="model.error" class="alert alert-danger" role="alert">
+    {{model.error}}
+</div>
 <div class="container-fluid">
-    <form>
+    <form name="widgetForm" id="widgetForm" novalidate>
         <div class="form-group">
             <label for="name">Name</label>
-            <input ng-model="model.widget.name" type="text" class="form-control" id="name" placeholder="FullMetal"/>
+            <input ng-model="model.widget.name" type="text" class="form-control" id="name" placeholder="FullMetal"
+            name="name" required/>
         </div>
         <div class="form-group">
             <label for="text">Text</label>

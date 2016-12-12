@@ -13,17 +13,26 @@
         {{model.error}}
     </div>
 
-    <form>
+    <form name="loginForm" novalidate>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" ng-model="model.user.username" class="form-control" id="username" placeholder="FullMetal">
+            <input type="text" ng-model="model.user.username" class="form-control" id="username" name="username"
+                   placeholder="FullMetal" required>
+        </div>
+        <div ng-show="loginForm.username.$invalid && loginForm.$submitted"
+             class="error">
+            Username is required
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" ng-model="model.user.password" class="form-control" id="password" placeholder="PhilosophersStome">
+            <input type="password" ng-model="model.user.password" class="form-control" id="password" name="password"
+                   placeholder="PhilosophersStone" required>
         </div>
-
-        <a ng-click="model.login(model.user)" class="btn btn-primary btn-block">Login</a>
+        <div ng-show="loginForm.password.$invalid && loginForm.$submitted"
+             class="error">
+            Password is required
+        </div>
+        <button ng-click="model.login(model.user)" class="btn btn-primary btn-block">Login</button>
         <a href="/auth/google" class="btn btn-danger btn-block">
             <span class="fa fa-google-plus"></span>
             Google

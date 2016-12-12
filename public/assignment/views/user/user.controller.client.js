@@ -11,7 +11,7 @@
 
         function login(user) {
             if (!(user.username && user.password)) {
-                vm.error = "Please enter username and password";
+                vm.error = "Please fix the errors in the form";
                 return;
             }
 
@@ -51,11 +51,11 @@
                         })
                 }
                 else {
-                    vm.error = "Password and Confirm Password should match"
+                    vm.error = "Please fix the errors in the form";
                 }
             }
             else {
-                vm.error = "Username and password are both required";
+                vm.error = "Please fix the errors in the form";
             }
         }
     }
@@ -103,12 +103,13 @@
                     console.error(error);
                 })
         }
+
         function updateUser(user){
             if (user.username) {
                 UserService.updateUser(vm.userId, user);
             }
             else {
-                vm.error = "Username cannot be left blank"
+                vm.error = "Please fix the errors in the form";
             }
         }
     }

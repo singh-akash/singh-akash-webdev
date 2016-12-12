@@ -11,24 +11,41 @@
     <div ng-show="model.error" class="alert alert-danger" role="alert">
         {{model.error}}
     </div>
-
-    <form>
+    <form name="registerForm" novalidate>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" ng-model="model.user.username" class="form-control" id="username"
-                   placeholder="FlameAlchemist">
+                   name="username" placeholder="FlameAlchemist" required>
+        </div>
+        <div ng-show="registerForm.username.$invalid && registerForm.$submitted"
+             class="error">
+            Username is required
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" ng-model="model.user.password"
-                   class="form-control" id="password" placeholder="Furher">
+            <input type="password" ng-model="model.user.password" name="password"
+                   class="form-control" id="password" placeholder="Furher" required>
+        </div>
+        <div ng-show="registerForm.password.$invalid && registerForm.$submitted"
+             class="error">
+            Password is required
         </div>
         <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" ng-model="model.user.confirmPassword" class="form-control" id="confirm-password" placeholder="Furher">
+            <label for="passwordother">Confirm Password</label>
+            <input type="password" ng-model="model.user.confirmPassword" name="passwordother"
+                   class="form-control" id="passwordother" placeholder="Furher" required>
         </div>
-        <a class="btn btn-primary btn-block"
-           ng-click="model.register(model.user)">Register</a>
+        <div ng-show="registerForm.passwordother.$invalid && registerForm.$submitted"
+             class="error">
+            Confirm Password is required
+        </div>
+        <div ng-show="model.user.confirmPassword != model.user.password && registerForm.$submitted"
+             class="error">
+            Password and Confirm Password should match
+        </div>
+
+        <button class="btn btn-primary btn-block"
+           ng-click="model.register(model.user)">Register</button>
         <a class="btn btn-danger btn-block"
            href="#/login">Cancel</a>
     </form>

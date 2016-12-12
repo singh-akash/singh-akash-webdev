@@ -96,14 +96,18 @@
         }
 
         function updateWidget(widget) {
-            WidgetService
-                .updateWidget(vm.widgetId, widget)
-                .success(function () {
-                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
-                })
-                .error(function (error) {
-                    console.error(error);
-                });
+            if (widget.name) {
+                WidgetService
+                    .updateWidget(vm.widgetId, widget)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                    })
+                    .error(function (error) {
+                        console.error(error);
+                    });
+            }
+            else {
+            }
         }
     }
 })();

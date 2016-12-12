@@ -8,14 +8,14 @@
         <ul class="nav navbar-nav">
             <li><a class="navbar-font">Widget Edit</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right pull-right">
-            <li><a class="navbar-font"
-                   ng-click="model.updateWidget(model.widget)">
-                <span class="glyphicon glyphicon-ok"></span></a></li>
+        <ul class="navbar-text pull-right">
+            <li><button class="btn btn-rem-pad" type=submit class="navbar-font"
+                        ng-click="model.updateWidget(model.widget)">
+                <span class="glyphicon glyphicon-ok">
+                </span></button></li>
         </ul>
     </div>
 </nav>
-
 <div ng-if='model.widget.type' ng-include="'/assignment/views/widget/widget-' + model.widget.type.toLowerCase() + '.view.client.html'">
 </div>
 

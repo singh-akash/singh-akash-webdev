@@ -54,7 +54,7 @@
                     });
             }
             else {
-                vm.error = "Page Name cannot be left blank";
+                vm.error = "Please fix the errors in the form";
             }
         }
     }
@@ -111,7 +111,7 @@
                     });
             }
             else {
-                vm.error = "Page Name cannot be left blank";
+                vm.error = "Please fix the errors in the form";
             }
         }
     }

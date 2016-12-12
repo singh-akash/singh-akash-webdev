@@ -35,7 +35,7 @@ body {
 }
 
 .navbar-default .navbar-nav .navbar-font {
-    padding: 10px 17px;
+    /**padding: 10px 17px;*/
     color:white;
     font-size:20px;
     line-height: 25px;
@@ -100,4 +100,40 @@ a:hover {
 
 .display-none {
     display: none;
+}
+
+
+.ng-submitted.ng-invalid {
+  color: red;
+}
+
+.ng-submitted .ng-invalid {
+    color: indianred;
+}
+form {
+    padding: 10px;
+}
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+.ng-invalid .error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.navbar-default .navbar-link {
+    color: #fff;
+}
+
+.btn-rem-pad {
+    padding-bottom: 0px;
+    padding-top: 5px;
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.btn-rem-pad:hover {
+    color:lightskyblue;
+    font-color: lightskyblue !important;
 }
