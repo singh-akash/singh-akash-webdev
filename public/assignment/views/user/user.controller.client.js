@@ -10,7 +10,12 @@
         vm.login = login;
 
         function login(user) {
-            if (!(user.username && user.password)) {
+            if (!(user && user.username && user.password)) {
+                vm.error = "Please fix the errors in the form";
+                return;
+            }
+
+            if (user.username == "" || user.password) {
                 vm.error = "Please fix the errors in the form";
                 return;
             }
@@ -40,6 +45,12 @@
 
         function register(user) {
             if (user && user.username && user.password) {
+
+                if (user.username == "" || user.password == "") {
+                    vm.error = "Please fix the errors in the form";
+                    return;
+                }
+
                 if (user.password === user.confirmPassword) {
                     UserService
                         .register(user)
@@ -105,7 +116,7 @@
         }
 
         function updateUser(user){
-            if (user.username) {
+            if (user.username && user.username != "") {
                 UserService.updateUser(vm.userId, user);
             }
             else {

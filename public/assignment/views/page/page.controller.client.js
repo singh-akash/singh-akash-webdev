@@ -43,7 +43,7 @@
         init();
 
         function addPage(page){
-            if (page.name) {
+            if (page && page.name) {
                 PageService
                     .createPage(vm.websiteId, page)
                     .success(function () {
@@ -100,7 +100,7 @@
         }
 
         function updatePage(page) {
-            if (page.name) {
+            if (page && page.name) {
                 PageService
                     .updatePage(vm.pageId, page)
                     .success(function () {

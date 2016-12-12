@@ -39,7 +39,7 @@
         init();
 
         function addWebsite(website){
-            if (website.name) {
+            if (website && website.name) {
                 WebsiteService
                     .createWebsite(vm.userId, website)
                     .success(function () {
@@ -95,7 +95,7 @@
         }
 
         function updateWebsite(website) {
-            if (website.name) {
+            if (website && website.name) {
                 WebsiteService
                     .updateWebsite(vm.websiteId, website)
                     .success(function () {
