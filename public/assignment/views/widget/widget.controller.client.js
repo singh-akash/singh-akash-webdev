@@ -107,6 +107,7 @@
                     });
             }
             else {
+                vm.error = "Widget Name is required";
             }
         }
     }
