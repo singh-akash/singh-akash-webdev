@@ -239,7 +239,12 @@ img { border: 0; max-width: 100%; }
   background-position: center;
 }
 
-.bg-circ-neu{
+.bg-circ-neu {
   background: url("../icons/neu.jpg");
+  background-position: center;
+}
+
+.bg-circ-bb{
+  background: url("../icons/bb.png");
   background-position: center;
 }
