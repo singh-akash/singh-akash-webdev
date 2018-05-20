@@ -248,3 +248,8 @@ img { border: 0; max-width: 100%; }
   background: url("../icons/bb.png");
   background-position: center;
 }
+
+.bg-circ-bb{
+  background: url("../icons/goog.png");
+  background-position: center;
+}
